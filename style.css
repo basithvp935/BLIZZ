@@ -77,7 +77,7 @@ h1, h2, h3, h4, .luxury-heading {
 }
 
 .highlight-green {
-    background: linear-gradient(135deg, #FFFFFF 15%, #E6DCFF 45%, #B794F6 80%, #8C65F7 100%);
+    background: linear-gradient(135deg, #E2D4FF 0%, #C084FC 45%, #A855F7 80%, #8C65F7 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
@@ -208,13 +208,13 @@ i.highlight-green {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 18px 0;
+    padding: 14px 0;
     transition: var(--transition-smooth);
     z-index: 1050;
 }
 
 .navbar-custom.scrolled {
-    padding: 12px 0;
+    padding: 10px 0;
     background: rgba(20, 12, 48, 0.94);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
@@ -226,16 +226,20 @@ i.highlight-green {
 }
 
 .navbar-logo-img, .footer-logo-img {
-    height: 52px;
+    height: 66px;
     width: auto;
-    max-width: 200px;
+    max-width: 240px;
     object-fit: contain;
     transition: var(--transition-smooth);
 }
 
+.navbar-custom.scrolled .navbar-logo-img {
+    height: 58px;
+}
+
 .footer-logo-img {
-    height: 56px;
-    max-width: 220px;
+    height: 72px;
+    max-width: 260px;
 }
 
 .navbar-brand-wrapper:hover .navbar-logo-img,
@@ -520,8 +524,11 @@ i.highlight-green {
 }
 
 .product-visual-container {
-    height: 190px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(225, 218, 248, 0.6) 100%);
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    height: auto;
+    min-height: 220px;
+    background: #F4EFFF;
     border-radius: 16px;
     display: flex;
     align-items: center;
@@ -529,45 +536,52 @@ i.highlight-green {
     margin-bottom: 16px;
     position: relative;
     overflow: hidden;
-    border: 1px solid rgba(36, 23, 81, 0.15);
+    border: 1px solid rgba(36, 23, 81, 0.12);
     transition: var(--transition-smooth);
+}
+
+.product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 15px;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.04);
 }
 
 .product-card:hover .product-visual-container {
-    transform: scale(1.03);
-    border-color: rgba(140, 101, 247, 0.4);
-    background: linear-gradient(180deg, #FFFFFF 0%, rgba(219, 210, 245, 0.7) 100%);
-}
-
-.product-visual-container svg {
-    filter: drop-shadow(0 6px 14px rgba(36, 23, 81, 0.25));
-    transition: var(--transition-smooth);
-}
-
-.product-card:hover .product-visual-container svg {
-    transform: scale(1.04);
+    border-color: rgba(140, 101, 247, 0.5);
+    box-shadow: 0 10px 25px rgba(36, 23, 81, 0.15);
 }
 
 .product-badge-price {
     position: absolute;
     top: 12px;
     right: 12px;
-    background: linear-gradient(135deg, #FFFFFF 0%, #EDE5FF 100%);
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     color: #241751;
     font-weight: 800;
-    font-size: 0.82rem;
+    font-size: 0.85rem;
     padding: 4px 12px;
     border-radius: 30px;
     border: 1px solid rgba(94, 57, 194, 0.2);
-    box-shadow: 0 4px 14px rgba(36, 23, 81, 0.15), 0 0 8px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 14px rgba(36, 23, 81, 0.2), 0 0 8px rgba(255, 255, 255, 0.6);
+    z-index: 2;
 }
 
 .product-category-tag {
     position: absolute;
     top: 12px;
     left: 12px;
-    background: rgba(36, 23, 81, 0.9);
+    background: rgba(36, 23, 81, 0.88);
     backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     color: #FFFFFF;
     font-weight: 700;
     font-size: 0.7rem;
@@ -576,6 +590,7 @@ i.highlight-green {
     padding: 3px 10px;
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.25);
+    z-index: 2;
 }
 
 .product-title {
@@ -673,8 +688,15 @@ i.highlight-green {
     color: #241751;
 }
 
-.why-us-section .section-title .italic-luxury {
-    color: #5E39C2;
+.why-us-section .section-title .italic-luxury,
+.why-us-section .section-title .highlight-green {
+    background: linear-gradient(135deg, #43148F 0%, #5B21B6 40%, #7C3AED 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: #43148F !important;
+    font-weight: 700 !important;
+    display: inline-block;
+    filter: drop-shadow(0 2px 6px rgba(67, 20, 143, 0.2));
 }
 
 .why-us-section .section-header .text-glass {
@@ -846,8 +868,15 @@ i.highlight-green {
     color: #241751;
 }
 
-.contact-section .section-title .italic-luxury {
-    color: #5E39C2;
+.contact-section .section-title .italic-luxury,
+.contact-section .section-title .highlight-green {
+    background: linear-gradient(135deg, #43148F 0%, #5B21B6 40%, #7C3AED 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: #43148F !important;
+    font-weight: 700 !important;
+    display: inline-block;
+    filter: drop-shadow(0 2px 6px rgba(67, 20, 143, 0.2));
 }
 
 .contact-section .section-header .text-glass {
@@ -1272,7 +1301,7 @@ i.highlight-green {
         margin-bottom: 16px;
     }
     .navbar-logo-img {
-        height: 42px !important;
-        max-width: 160px;
+        height: 52px !important;
+        max-width: 180px;
     }
 }
