@@ -302,26 +302,89 @@ i.highlight-green {
 }
 
 .hero-badge {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(122, 82, 226, 0.25) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    color: #FFFFFF;
+    position: relative;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(140, 101, 247, 0.22) 50%, rgba(36, 23, 81, 0.65) 100%);
+    border: 1px solid rgba(224, 212, 255, 0.35);
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 8px 20px;
-    border-radius: 40px;
-    font-size: 0.88rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+    gap: 12px;
+    padding: 6px 18px 6px 7px;
+    border-radius: 50px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 8px 24px rgba(20, 12, 48, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.45), 0 0 20px rgba(140, 101, 247, 0.25);
     margin-bottom: 24px;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 4px 18px rgba(36, 23, 81, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+    overflow: hidden;
+    transition: var(--transition-smooth);
 }
 
-.hero-badge i {
-    color: #E0D4FF;
-    filter: drop-shadow(0 0 6px rgba(224, 212, 255, 0.8));
+.hero-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: skewX(-20deg);
+    animation: badgeShimmer 4s infinite ease-in-out;
+    pointer-events: none;
+}
+
+@keyframes badgeShimmer {
+    0%, 30% { left: -120%; }
+    70%, 100% { left: 180%; }
+}
+
+.hero-badge:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 12px 30px rgba(20, 12, 48, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.7), 0 0 30px rgba(140, 101, 247, 0.5);
+}
+
+.hero-badge-brand {
+    background: linear-gradient(135deg, #FFFFFF 0%, #EADCFF 50%, #C4A7FE 100%);
+    color: #241751;
+    font-weight: 800;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 10px rgba(140, 101, 247, 0.45), 0 0 14px rgba(255, 255, 255, 0.7);
+    position: relative;
+    white-space: nowrap;
+}
+
+.hero-badge-brand i {
+    color: #5E39C2;
+    font-size: 0.92rem;
+    filter: drop-shadow(0 0 4px rgba(94, 57, 194, 0.6));
+    animation: sparklePulse 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes sparklePulse {
+    0% { transform: scale(0.9) rotate(-6deg); }
+    100% { transform: scale(1.15) rotate(10deg); }
+}
+
+.hero-badge-divider {
+    width: 1px;
+    height: 16px;
+    background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+}
+
+.hero-badge-text {
+    color: #F4EFFF;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-shadow: 0 0 12px rgba(224, 212, 255, 0.5);
+    white-space: nowrap;
 }
 
 .hero-title {
@@ -387,6 +450,246 @@ i.highlight-green {
     justify-content: center;
     border-radius: 20px;
     background: radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, rgba(122, 82, 226, 0.25) 50%, rgba(36, 23, 81, 0.5) 100%);
+}
+
+/* ========================================================
+   Enhanced Floating Social Action Capsule (Bottom-Right)
+======================================================== */
+.floating-social-capsule {
+    position: fixed;
+    bottom: 26px;
+    right: 26px;
+    z-index: 9999;
+    animation: dockFloat 4.5s ease-in-out infinite alternate;
+}
+
+@keyframes dockFloat {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-6px); }
+}
+
+.floating-social-inner {
+    background: rgba(30, 18, 68, 0.62);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 50px;
+    padding: 8px 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 
+        0 18px 40px rgba(10, 5, 25, 0.5), 
+        inset 0 1px 1px rgba(255, 255, 255, 0.45), 
+        0 0 25px rgba(140, 101, 247, 0.25);
+    transition: var(--transition-smooth);
+}
+
+.floating-social-inner:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 
+        0 22px 48px rgba(10, 5, 25, 0.6), 
+        inset 0 1px 1px rgba(255, 255, 255, 0.6), 
+        0 0 35px rgba(140, 101, 247, 0.4);
+}
+
+.floating-social-btn {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF !important;
+    font-size: 1.35rem;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow: visible;
+}
+
+/* 3D Curved Gloss Highlight on Top Half */
+.floating-social-btn::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 8px;
+    right: 8px;
+    height: 38%;
+    border-radius: 50px 50px 20px 20px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.05) 100%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.floating-social-btn i {
+    position: relative;
+    z-index: 3;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
+    transition: transform 0.35s ease;
+}
+
+.floating-social-btn:hover {
+    transform: scale(1.16) translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.85);
+}
+
+.floating-social-btn:hover i {
+    transform: scale(1.12);
+}
+
+.floating-social-btn:active {
+    transform: scale(0.96);
+}
+
+/* Individual 3D Glowing Button Schemes */
+.floating-social-btn.facebook {
+    background: linear-gradient(145deg, #3A92FF 0%, #1877F2 60%, #0A52B8 100%);
+    box-shadow: 
+        0 6px 18px rgba(24, 119, 242, 0.6), 
+        inset 0 2px 3px rgba(255, 255, 255, 0.65), 
+        inset 0 -2px 3px rgba(0, 0, 0, 0.25);
+}
+
+.floating-social-btn.facebook:hover {
+    box-shadow: 
+        0 10px 28px rgba(24, 119, 242, 0.85), 
+        0 0 20px rgba(58, 146, 255, 0.75), 
+        inset 0 2px 4px rgba(255, 255, 255, 0.8);
+}
+
+.floating-social-btn.instagram {
+    background: linear-gradient(145deg, #FF6B8B 0%, #D62976 40%, #962FBF 75%, #4F5BD5 100%);
+    box-shadow: 
+        0 6px 18px rgba(214, 41, 118, 0.6), 
+        inset 0 2px 3px rgba(255, 255, 255, 0.65), 
+        inset 0 -2px 3px rgba(0, 0, 0, 0.25);
+}
+
+.floating-social-btn.instagram:hover {
+    box-shadow: 
+        0 10px 28px rgba(214, 41, 118, 0.85), 
+        0 0 22px rgba(255, 107, 139, 0.75), 
+        inset 0 2px 4px rgba(255, 255, 255, 0.8);
+}
+
+.floating-social-btn.whatsapp {
+    background: linear-gradient(145deg, #32E77B 0%, #20B858 55%, #0F823E 100%);
+    box-shadow: 
+        0 6px 18px rgba(32, 184, 88, 0.65), 
+        inset 0 2px 3px rgba(255, 255, 255, 0.7), 
+        inset 0 -2px 3px rgba(0, 0, 0, 0.25);
+}
+
+.floating-social-btn.whatsapp:hover {
+    box-shadow: 
+        0 10px 28px rgba(32, 184, 88, 0.9), 
+        0 0 22px rgba(50, 231, 123, 0.8), 
+        inset 0 2px 4px rgba(255, 255, 255, 0.85);
+}
+
+/* WhatsApp Radar Pulse Ring */
+.floating-pulse-ring {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 50%;
+    border: 2px solid rgba(50, 231, 123, 0.75);
+    animation: pulseRing 2.4s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes pulseRing {
+    0% {
+        transform: scale(0.92);
+        opacity: 0.95;
+    }
+    70% {
+        transform: scale(1.35);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+}
+
+/* Luxury Tooltip with Brand Dots */
+.floating-social-tooltip {
+    position: absolute;
+    right: calc(100% + 14px);
+    top: 50%;
+    transform: translateY(-50%) translateX(8px);
+    background: rgba(24, 15, 54, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    color: #FFFFFF;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 6px 14px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    z-index: 10;
+}
+
+.tooltip-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.tooltip-dot.facebook-dot {
+    background: #1877F2;
+    box-shadow: 0 0 6px #1877F2;
+}
+
+.tooltip-dot.instagram-dot {
+    background: #D62976;
+    box-shadow: 0 0 6px #D62976;
+}
+
+.tooltip-dot.whatsapp-dot {
+    background: #25D366;
+    box-shadow: 0 0 6px #25D366;
+}
+
+.floating-social-btn:hover .floating-social-tooltip {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+}
+
+@media (max-width: 575.98px) {
+    .floating-social-capsule {
+        bottom: 18px;
+        right: 16px;
+    }
+    .floating-social-inner {
+        padding: 6px 5px;
+        gap: 8px;
+    }
+    .floating-social-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 1.15rem;
+    }
+    .floating-social-tooltip {
+        display: none;
+    }
 }
 
 .floating-stat-badge {
@@ -1206,8 +1509,16 @@ i.highlight-green {
         padding-bottom: 20px !important;
     }
     .hero-badge {
-        margin-bottom: 12px !important;
-        padding: 5px 12px !important;
+        margin-bottom: 14px !important;
+        padding: 5px 12px 5px 6px !important;
+        gap: 8px !important;
+        max-width: 100%;
+    }
+    .hero-badge-brand {
+        font-size: 0.7rem !important;
+        padding: 4px 10px !important;
+    }
+    .hero-badge-text {
         font-size: 0.72rem !important;
     }
     .hero-title {
