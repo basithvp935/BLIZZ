@@ -673,22 +673,31 @@ i.highlight-green {
     transform: translateY(-50%) translateX(0);
 }
 
+@media (max-width: 768px) {
+    .floating-pulse-ring {
+        display: none !important;
+    }
+}
+
 @media (max-width: 575.98px) {
     .floating-social-capsule {
         bottom: 18px;
-        right: 16px;
+        right: 14px;
     }
     .floating-social-inner {
         padding: 6px 5px;
         gap: 8px;
     }
     .floating-social-btn {
-        width: 42px;
-        height: 42px;
-        font-size: 1.15rem;
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+    .floating-pulse-ring {
+        display: none !important;
     }
     .floating-social-tooltip {
-        display: none;
+        display: none !important;
     }
 }
 
