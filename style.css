@@ -226,20 +226,20 @@ i.highlight-green {
 }
 
 .navbar-logo-img, .footer-logo-img {
-    height: 66px;
+    height: 80px;
     width: auto;
-    max-width: 240px;
+    max-width: 280px;
     object-fit: contain;
     transition: var(--transition-smooth);
 }
 
 .navbar-custom.scrolled .navbar-logo-img {
-    height: 58px;
+    height: 68px;
 }
 
 .footer-logo-img {
-    height: 72px;
-    max-width: 260px;
+    height: 84px;
+    max-width: 300px;
 }
 
 .navbar-brand-wrapper:hover .navbar-logo-img,
@@ -907,7 +907,8 @@ i.highlight-green {
 
 .product-title {
     font-size: 1.25rem;
-    margin-bottom: 6px;
+    margin-bottom: 0;
+    margin-top: auto;
     color: #241751;
     font-weight: 800;
 }
