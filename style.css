@@ -590,35 +590,6 @@ i.highlight-green {
         inset 0 2px 4px rgba(255, 255, 255, 0.85);
 }
 
-/* WhatsApp Radar Pulse Ring */
-.floating-pulse-ring {
-    position: absolute;
-    top: -5px;
-    left: -5px;
-    right: -5px;
-    bottom: -5px;
-    border-radius: 50%;
-    border: 2px solid rgba(50, 231, 123, 0.75);
-    animation: pulseRing 2.4s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
-    pointer-events: none;
-    z-index: 1;
-}
-
-@keyframes pulseRing {
-    0% {
-        transform: scale(0.92);
-        opacity: 0.95;
-    }
-    70% {
-        transform: scale(1.35);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1.4);
-        opacity: 0;
-    }
-}
-
 /* Luxury Tooltip with Brand Dots */
 .floating-social-tooltip {
     position: absolute;
@@ -673,12 +644,6 @@ i.highlight-green {
     transform: translateY(-50%) translateX(0);
 }
 
-@media (max-width: 768px) {
-    .floating-pulse-ring {
-        display: none !important;
-    }
-}
-
 @media (max-width: 575.98px) {
     .floating-social-capsule {
         bottom: 18px;
@@ -692,9 +657,6 @@ i.highlight-green {
         width: 40px;
         height: 40px;
         font-size: 1.1rem;
-    }
-    .floating-pulse-ring {
-        display: none !important;
     }
     .floating-social-tooltip {
         display: none !important;
