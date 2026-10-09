@@ -91,78 +91,65 @@
         </div>
     </nav>
 
-    <!-- 1. Hero Section -->
-    <header class="hero-section" id="home">
+    <!-- 1. Hero Section (Enhanced Centerpiece Showcase with Changing Type) -->
+    <header class="hero-section hero-showcase-center" id="home">
+        <!-- Multi-layer Center Ambient Glows -->
+        <div class="hero-ambient-glow"></div>
+        <div class="hero-ambient-glow-secondary"></div>
+
         <div class="container position-relative" style="z-index: 2;">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-6">
-                    <div class="hero-badge">
-                        <span class="hero-badge-brand">Necta Blizz</span>
-                        <span class="hero-badge-divider"></span>
-                        <span class="hero-badge-text">The Elite Hydration Standard</span>
-                    </div>
-                    <h1 class="hero-title">
-                        Pure <span class="highlight-green" id="typewriterWord">Refreshment</span><span
-                            class="typewriter-cursor">|</span>, <br>
-                        <span class="luxury-italic">Crafted to Perfection.</span>
-                    </h1>
-                    <p class="hero-subtitle">
-                        Immerse yourself in extraordinary purity. From ultra-purified pristine mineral water to
-                        crystal-clear slow-melting ice and vibrant artisanal cold-pressed juices.
-                    </p>
-                    <!-- Mobile-only Video Showcase (Above Buttons on Mobile) -->
-                    <div class="hero-image-wrapper d-block d-lg-none my-4">
-                        <div class="hero-main-card">
-                            <div class="hero-product-art" style="overflow: hidden; border-radius: 20px;">
-                                <video autoplay loop muted playsinline
-                                    style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
-                                    <source src="images/blizz.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-xl-9 text-center">
+                    
+                    <!-- Centerpiece Logo Presentation -->
+                    <div class="hero-logo-centerpiece">
+                        
+                        <!-- Center Brand Logo with Floating Aura -->
+                        <div class="hero-logo-wrapper">
+                            <img src="images/Logo PNG white.png" alt="Necta Blizz" class="hero-center-logo-img img-fluid" loading="eager">
+                        </div>
 
-                            <div class="text-center mt-3">
-                                <h3 class="h4 mb-1">Necta <span class="highlight-green">Signature</span> Collection</h3>
-                                <p class="text-glass-muted small mb-0">Mineral Water • Crystal Ice • Artisanal Juices
-                                </p>
+                        <!-- Refined Brand Tagline Bar with Dynamic Changing Typewriter -->
+                        <div class="hero-tagline-wrapper">
+                            <div class="hero-tagline-divider">
+                                <span class="tagline-glow-dot"></span>
+                            </div>
+                            <p class="hero-brand-tagline">
+                                <span id="heroTypewriterText">The Elite Hydration Standard</span><span class="typewriter-cursor">|</span>
+                            </p>
+                            <div class="hero-tagline-divider">
+                                <span class="tagline-glow-dot"></span>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="d-flex flex-wrap gap-3">
-                        <a href="#products" class="btn btn-leaf" id="heroExploreBtn">
-                            <i class="bi bi-grid-3x3-gap-fill"></i> Explore Products
-                        </a>
-                        <a href="#contact" class="btn btn-outline-glass" id="heroContactBtn">
-                            <i class="bi bi-chat-square-dots-fill"></i> Get in Touch
-                        </a>
-                    </div>
-                </div>
+                        <!-- Brand Subtitle / Lineup Description -->
+                        <p class="hero-center-subtitle">
+                            Pure Refreshment, Crafted to Perfection. Experience luxury mineral water, slow-melting crystal ice, artisanal juices, and gourmet sip-ups.
+                        </p>
 
-                <!-- Desktop-only Video Showcase Column -->
-                <div class="col-lg-6 d-none d-lg-block">
-                    <div class="hero-image-wrapper">
-                        <!-- Luxury Hero Glass Showcase -->
-                        <div class="hero-main-card">
-                            <div class="hero-product-art" style="overflow: hidden; border-radius: 20px;">
-                                <video autoplay loop muted playsinline
-                                    style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
-                                    <source src="images/blizz.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-
-                            <div class="text-center mt-3">
-                                <h3 class="h4 mb-1">Necta <span class="highlight-green">Signature</span> Collection</h3>
-                                <p class="text-glass-muted small mb-0">Mineral Water • Crystal Ice • Artisanal Juices
-                                </p>
-                            </div>
-
+                        <!-- CTA Actions -->
+                        <div class="d-flex flex-wrap justify-content-center gap-3 mt-3 pt-1">
+                            <a href="#products" class="btn btn-leaf btn-hero-lg" id="heroExploreBtn">
+                                <i class="bi bi-grid-3x3-gap-fill"></i> Explore Products
+                            </a>
+                            <a href="#contact" class="btn btn-outline-glass btn-hero-lg" id="heroContactBtn">
+                                <i class="bi bi-chat-square-dots-fill"></i> Get in Touch
+                            </a>
                         </div>
+
                     </div>
+
                 </div>
             </div>
         </div>
+
+        <!-- Scroll Indicator -->
+        <a href="#about" class="hero-scroll-down-btn" aria-label="Scroll to About">
+            <span class="scroll-mouse-icon">
+                <span class="scroll-wheel-dot"></span>
+            </span>
+            <span class="scroll-text">Scroll Down</span>
+        </a>
     </header>
 
     <!-- About Us Section -->
@@ -840,43 +827,50 @@
             document.getElementById('inquiryForm').reset();
         }
 
-        // Typewriter Animation for Hero Title
-        const typeWords = ["Refreshment", "Purity", "Hydration", "Vitality", "Perfection"];
-        let typeWordIdx = 0;
-        let typeCharIdx = 0;
-        let isDeletingWord = false;
-        const typeEl = document.getElementById('typewriterWord');
+        // Typewriter Animation for Dynamic Changing Tagline
+        const typePhrases = [
+            "The Elite Hydration Standard",
+            "Pure Refreshment, Crafted to Perfection",
+            "Luxury Artisanal Mineral Water",
+            "100% Pure Cold-Pressed Juices",
+            "Slow-Melting Crystal Ice & Spheres",
+            "Gourmet Artisanal Frozen Sip-Ups"
+        ];
+        let phraseIdx = 0;
+        let charIdx = 0;
+        let isDeleting = false;
+        const typewriterEl = document.getElementById('heroTypewriterText');
 
         function runTypewriter() {
-            if (!typeEl) return;
-            const currentFullWord = typeWords[typeWordIdx];
+            if (!typewriterEl) return;
+            const currentPhrase = typePhrases[phraseIdx];
 
-            if (isDeletingWord) {
-                typeEl.textContent = currentFullWord.substring(0, typeCharIdx - 1);
-                typeCharIdx--;
+            if (isDeleting) {
+                typewriterEl.textContent = currentPhrase.substring(0, charIdx - 1);
+                charIdx--;
             } else {
-                typeEl.textContent = currentFullWord.substring(0, typeCharIdx + 1);
-                typeCharIdx++;
+                typewriterEl.textContent = currentPhrase.substring(0, charIdx + 1);
+                charIdx++;
             }
 
-            let nextSpeed = isDeletingWord ? 65 : 120;
+            let nextSpeed = isDeleting ? 40 : 85;
 
-            if (!isDeletingWord && typeCharIdx === currentFullWord.length) {
-                nextSpeed = 2200; // Pause after typing word
-                isDeletingWord = true;
-            } else if (isDeletingWord && typeCharIdx === 0) {
-                isDeletingWord = false;
-                typeWordIdx = (typeWordIdx + 1) % typeWords.length;
-                nextSpeed = 400; // Pause before typing next word
+            if (!isDeleting && charIdx === currentPhrase.length) {
+                nextSpeed = 2400; // Pause at full phrase
+                isDeleting = true;
+            } else if (isDeleting && charIdx === 0) {
+                isDeleting = false;
+                phraseIdx = (phraseIdx + 1) % typePhrases.length;
+                nextSpeed = 350; // Pause before next phrase
             }
 
             setTimeout(runTypewriter, nextSpeed);
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            if (typeEl) {
-                typeEl.textContent = "";
-                setTimeout(runTypewriter, 600);
+            if (typewriterEl) {
+                typewriterEl.textContent = "";
+                setTimeout(runTypewriter, 500);
             }
         });
     </script>
